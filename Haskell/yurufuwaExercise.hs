@@ -1,5 +1,5 @@
 import Data.List
-
+import Data.Char
 -- 問題はこちらにあります https://github.com/tokiwoousaka/YuruhuwaHaskell/blob/master/exercises/%E6%BC%94%E7%BF%92%E5%95%8F%E9%A1%8C_%E3%82%86%E3%82%8B%E3%81%B5%E3%82%8F%E7%B7%A8.md
 -- 練習問題1はとばします(ちゃんとやりました!)
 
@@ -17,7 +17,7 @@ repeatStr' str = concat . flip replicate str
 
 -- 演習1
 -- ＊を指定回数分繰り返す関数を定義しましょう。
-stars :: Int ->　String
+stars :: Int -> String
 stars = repeatStr "*"
 
 --演習2
@@ -74,3 +74,11 @@ fizzBuzz n = putStrLn $ intercalate " " $ map fizzBuzzp [1..n]
           | n `mod` 5 == 0 = "Buzz"
           | n `mod` 3 == 0 = "Fizz"
           | otherwise = show n
+          
+-- ========= 3.1 CapsLock関数 =================
+
+-- 実装せよ:capsLock関数
+-- 入力: 文字列(半角英語)
+-- 出力: 入力された文字列すべてを大文字にして出力
+main :: IO()
+main = getLine >>= putStr . map toUpper
